@@ -1,0 +1,16 @@
+name: astrbot_plugin_parser_lite
+desc: 自动解析 B 站/抖音/小红书等平台分享链接与 JSON 卡片并转发为内容卡片；nonebot-plugin-parser-lite 的 AstrBot 桥接版
+short_desc: 自动解析社交平台分享链接并转发内容
+display_name: 链接解析 Lite
+version: v1.4.1rc5
+author: Chuuburarin
+repo: https://github.com/Chuuburarin/astrbot_plugin_parser_lite
+astrbot_version: ">=4.28,<5"
+support_platforms:
+  - aiocqhttp
+tags:
+  - 工具
+help:
+  usage:
+    - 群内发送 B 站/抖音/小红书等分享链接或 JSON 卡片，自动解析并转发内容
+    - 配置项请在 AstrBot WebUI 插件页中调整
