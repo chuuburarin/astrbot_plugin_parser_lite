@@ -1,0 +1,297 @@
+{
+  "plite_render": {
+    "description": "启用渲染长图卡片（关闭后直接发送文本/媒体）",
+    "type": "bool",
+    "default": true
+  },
+  "plite_video_file_threshold_mb": {
+    "description": "视频改用文件消息发送的大小阈值（MB，有效范围 1-100，超出范围按边界值处理）",
+    "type": "int",
+    "default": 100
+  },
+  "plite_verbose_error": {
+    "description": "解析失败时向会话发送简短错误说明（默认仅回应表情并记日志）",
+    "type": "bool",
+    "default": false
+  },
+  "plite_blacklist_users": {
+    "description": "黑名单用户列表，这些用户触发的解析将被忽略",
+    "type": "list",
+    "default": []
+  },
+  "plite_need_forward_contents": {
+    "description": "是否需要转发媒体内容（超过 4 项或纯文本超长时始终使用合并转发）",
+    "type": "bool",
+    "default": false
+  },
+  "plite_append_url": {
+    "description": "是否在解析结果中附加原始URL",
+    "type": "bool",
+    "default": false
+  },
+  "plite_embed_url": {
+    "description": "是否在解析结果中添加在线播放链接（如果有）",
+    "type": "bool",
+    "default": false
+  },
+  "plite_ssrf_trust_fake_ip": {
+    "description": "信任 fake-IP 代理出网（默认关闭）。打开后任意域名解析到 198.18.0.0/15 基准测试段都不再按内网拒绝；本机、云元数据、10/8、172.16/12、192.168/16、100.64/10 等真实内网与保留地址段仍然拒绝。只在「本进程的 DNS 出口确实是 fake-IP 代理」时打开；只想对个别域名让路请改代理的 fake-ip-filter（无需改这里）",
+    "type": "bool",
+    "default": false
+  },
+  "plite_zhihu_ck": {
+    "description": "知乎 cookies",
+    "type": "string",
+    "default": ""
+  },
+  "plite_linuxdo_ck": {
+    "description": "linuxdo cookies",
+    "type": "string",
+    "default": ""
+  },
+  "plite_x_ck": {
+    "description": "X cookies",
+    "type": "string",
+    "default": ""
+  },
+  "plite_need_upload": {
+    "description": "是否需要上传音视频文件（兼容旧配置）",
+    "type": "bool",
+    "default": false
+  },
+  "plite_need_upload_audio": {
+    "description": "是否需要上传音频文件",
+    "type": "bool",
+    "default": false
+  },
+  "plite_need_upload_video": {
+    "description": "是否需要上传视频文件",
+    "type": "bool",
+    "default": false
+  },
+  "plite_use_base64": {
+    "description": "是否使用 base64 编码发送图片，音频，视频",
+    "type": "bool",
+    "default": false
+  },
+  "plite_max_size": {
+    "description": "资源最大大小，默认 90 单位 MB",
+    "type": "int",
+    "default": 90
+  },
+  "plite_append_qrcode": {
+    "description": "是否在解析结果中添加原始URL二维码",
+    "type": "bool",
+    "default": false
+  },
+  "plite_disabled_platforms": {
+    "description": "禁用的解析器",
+    "type": "list",
+    "default": [],
+    "options": [
+      "acfun",
+      "bilibili",
+      "douyin",
+      "kuaishou",
+      "kugou",
+      "netease",
+      "x",
+      "weibo",
+      "rednote",
+      "qsmusic",
+      "kuwo",
+      "tieba",
+      "zhihu",
+      "duitang",
+      "heybox",
+      "lofter",
+      "buff",
+      "coolapk",
+      "illu",
+      "hupu",
+      "miyoushe",
+      "douban",
+      "5eplay",
+      "doubao",
+      "linuxdo",
+      "wmpvp",
+      "zlb",
+      "taptap",
+      "ds",
+      "qqmusic",
+      "migu"
+    ]
+  },
+  "plite_parse_dedup_minutes": {
+    "description": "同会话重复解析忽略分钟数；0 仅抑制并发重复",
+    "type": "int",
+    "default": 0
+  },
+  "plite_bili_video_codes": {
+    "description": "B站视频编码",
+    "type": "list",
+    "default": [
+      "avc",
+      "av01",
+      "hev",
+      "unknown"
+    ],
+    "options": [
+      "hev",
+      "avc",
+      "av01",
+      "unknown"
+    ]
+  },
+  "plite_bili_video_quality": {
+    "description": "B站视频清晰度",
+    "type": "int",
+    "default": 80,
+    "options": [
+      5,
+      6,
+      16,
+      32,
+      64,
+      74,
+      80,
+      100,
+      112,
+      116,
+      120,
+      122,
+      125,
+      126,
+      127
+    ]
+  },
+  "plite_bili_audio_quality": {
+    "description": "B站音频流音质上限",
+    "type": "int",
+    "default": 30280,
+    "options": [
+      30216,
+      30232,
+      30280,
+      30251,
+      30250
+    ]
+  },
+  "plite_lazy_download": {
+    "description": "是否开启懒下载模式，仅在用户请求时才下载视频",
+    "type": "bool",
+    "default": false
+  },
+  "plite_lazy_download_tip": {
+    "description": "懒下载是否发送命令提示",
+    "type": "bool",
+    "default": false
+  },
+  "plite_lazy_download_timeout": {
+    "description": "懒下载模式等待命令超时时间（有效范围 5-300，超出范围按边界值处理）",
+    "type": "int",
+    "default": 30
+  },
+  "plite_download_command": {
+    "description": "在懒下载模式中用户请求下载视频时的命令列表",
+    "type": "list",
+    "default": [
+      "xz",
+      "下载"
+    ]
+  },
+  "plite_live_photo": {
+    "description": "是否使用 ffmpeg 转码 Live Photo",
+    "type": "bool",
+    "default": true
+  },
+  "plite_max_comments": {
+    "description": "最大评论数量（有效范围 0-100，超出范围按边界值处理）",
+    "type": "int",
+    "default": 5
+  },
+  "plite_forward_text_threshold": {
+    "description": "纯文本文本长度阈值，超过此长度的文本将会强制转发(最大4500)（最小 1，超出范围按边界值处理）",
+    "type": "int",
+    "default": 1000
+  },
+  "plite_max_retries": {
+    "description": "最大下载重试次数",
+    "type": "int",
+    "default": 3
+  },
+  "plite_day_range": {
+    "description": "白天时间范围 [开始, 结束]，格式 h:m；范围内为浅色主题，范围外为夜间模式",
+    "type": "list",
+    "default": [
+      "6:00",
+      "19:00"
+    ]
+  },
+  "plite_render_theme": {
+    "description": "渲染主题 ID，主题目录可放在插件数据目录的 themes 下",
+    "type": "string",
+    "default": "default"
+  },
+  "plite_theme_dirs": {
+    "description": "额外的主题目录，可填写主题目录或包含多个主题的目录",
+    "type": "list",
+    "default": []
+  },
+  "plite_bili_cdn_region": {
+    "description": "哔哩哔哩 CDN 地区；支持 zh、en、ja、proxy 线路， default 即不修改地区",
+    "type": "string",
+    "default": "default",
+    "options": [
+      "zh",
+      "en",
+      "ja",
+      "proxy",
+      "default"
+    ]
+  },
+  "plite_bili_cdn_domain": {
+    "description": "自定义哔哩哔哩 CDN 域名，优先于地区配置",
+    "type": "string",
+    "default": ""
+  },
+  "plite_emoji_style": {
+    "description": "emoji 样式，system 优先系统字体并以 Twemoji 兜底，twitter/google 固定使用下载字体",
+    "type": "string",
+    "default": "system",
+    "options": [
+      "system",
+      "twitter",
+      "google"
+    ]
+  },
+  "plite_render_format": {
+    "description": "渲染图片格式，jpeg会丢失透明度但可能兼容性更好（桥默认 jpeg：webp 分支需 ffmpeg 编码产物，宿主缺 ffmpeg 时整卡会降级为文本）",
+    "type": "string",
+    "default": "jpeg",
+    "options": [
+      "jpeg",
+      "webp"
+    ]
+  },
+  "plite_media_speedup_rules": {
+    "description": "媒体倍速规则，格式 `平台:作者id:倍速`",
+    "type": "list",
+    "default": []
+  },
+  "plite_media_transcode_concurrency": {
+    "description": "媒体倍速并发操作数",
+    "type": "int",
+    "default": 1
+  },
+  "plite_bsb_api_base": {
+    "description": "哔哩哔哩空降服务地址, wiki: https://github.com/hanydd/BilibiliSponsorBlock/wiki/API",
+    "type": "string",
+    "default": ""
+  },
+  "plite_bsb_categories": {
+    "description": "参与裁切的片段分类，配置了服务地址时必填",
+    "type": "list",
+    "default": []
+  }
+}
